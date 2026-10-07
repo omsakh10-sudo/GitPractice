@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-Console.Title = "Company Task Tracker";
+Console.Title = "ITMS";
 List<TaskItem> tasks = new()
 {
    new TaskItem(1, "Review API documentation", "Salah"),
