@@ -19,7 +19,8 @@ while (isRunning)
     Console.WriteLine("1. View Tasks");
     Console.WriteLine("2. Add New Task");
     Console.WriteLine("3. Complete Task");
-    Console.WriteLine("4. Exit");
+    Console.WriteLine("4. Delete Task");
+    Console.WriteLine("5. Exit");
     Console.WriteLine();
     Console.Write("Choose an option: ");
     string? choice = Console.ReadLine();
@@ -35,6 +36,9 @@ while (isRunning)
             CompleteTask();
             break;
         case "4":
+            DeleteTask();
+            break;
+        case "5":
             isRunning = false;
             Console.WriteLine("Application closed.");
             break;
@@ -138,6 +142,40 @@ void CompleteTask()
     selectedTask.IsCompleted = true;
     Console.WriteLine();
     Console.WriteLine("Task completed successfully.");
+    Pause();
+}
+void DeleteTask()
+{
+    Console.Clear();
+    Console.WriteLine("========== DELETE TASK ==========");
+    Console.WriteLine();
+    foreach (TaskItem task in tasks)
+    {
+        Console.WriteLine($"{task.Id} - {task.Title}");
+    }
+    Console.WriteLine();
+    Console.Write("Enter task ID to delete: ");
+    bool validId = int.TryParse(
+        Console.ReadLine(),
+        out int taskId
+    );
+    if (!validId)
+    {
+        Console.WriteLine("Invalid task ID.");
+        Pause();
+        return;
+    }
+    TaskItem? selectedTask =
+        tasks.FirstOrDefault(task => task.Id == taskId);
+    if (selectedTask == null)
+    {
+        Console.WriteLine("Task not found.");
+        Pause();
+        return;
+    }
+    tasks.Remove(selectedTask);
+    Console.WriteLine();
+    Console.WriteLine("Task deleted successfully.");
     Pause();
 }
 void Pause()
