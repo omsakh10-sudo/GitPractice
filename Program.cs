@@ -43,7 +43,7 @@ while (isRunning)
             Console.WriteLine("Application closed.");
             break;
         default:
-            Console.WriteLine("Invalid option.");
+            Console.WriteLine(".Invalid option.");
             Pause();
             break;
     }
