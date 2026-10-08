@@ -16,7 +16,7 @@ while (isRunning)
     Console.WriteLine("         COMPANY TASK TRACKER");
     Console.WriteLine("========================================");
     Console.WriteLine();
-    Console.WriteLine("1. View Tasks");
+    Console.WriteLine("1. VView Tasks");
     Console.WriteLine("2. Add New Task");
     Console.WriteLine("3. Complete Task");
     Console.WriteLine("4. Delete Task");
